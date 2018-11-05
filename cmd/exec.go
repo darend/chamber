@@ -62,7 +62,7 @@ func execRun(cmd *cobra.Command, args []string) error {
 			if env.IsSet(envVarKey) {
 				fmt.Fprintf(os.Stderr, "warning: overwriting environment variable %s\n", envVarKey)
 			}
-			// ExpandEnv replaces ${var} or $var in the string according to the values of the current environment variables
+			// ExpandEnv replace ${var} or $var in the string according to the values of the current environment variables
 			expandedValue := os.ExpandEnv(rawSecret.Value)
 			env.Set(envVarKey, expandedValue)
 		}
